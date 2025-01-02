@@ -8,7 +8,7 @@
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=5g
-#SBATCH --time=1:00:00
+#SBATCH --time=00:10:00
 #SBATCH --job-name=HF_get_gene_seq
 #SBATCH --output=/gpfs01/home/mbzlld/code_and_scripts/slurm_out_scripts/slurm-%x-%j.out
 
@@ -23,5 +23,25 @@ wkdir=/gpfs01/home/mbzlld/data/Hoverflies/morph_refs
 reference=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa.gz
 annotation=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-2023_07-genes.gff
 gene=CA12
+
+
+# extract the line from the annotation file containing info on the gene of interest
+grep Name=$gene $annotation > $wkdir/tmp
+
+# convert to a bed file
+cut -f1,4,5 $wkdir/tmp > $wkdir/$gene.bed
+
+# remove temp file
+rm $wkdir/tmp
+
+# extract fasta sequence from reference file
+module load bedtools-uoneasy/2.31.0-GCC-12.3.0
+bedtools getfasta \
+	-fi $reference \
+	-bed $wkdir/$gene.bed \
+	-fo $wkdir/$gene.fasta
+
+module unload bedtools-uoneasy/2.31.0-GCC-12.3.0
+
 
 
