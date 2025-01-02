@@ -9,12 +9,12 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=5g
 #SBATCH --time=00:20:00
-#SBATCH --job-name=HF_blast_gene_seq
+#SBATCH --job-name=HF_blast_contig_seq
 #SBATCH --output=/gpfs01/home/mbzlld/code_and_scripts/slurm_out_scripts/slurm-%x-%j.out
 
 
-# blast CA12 gene sequence against Mara's morph assemblies and see where
-# the gene is and whether there are 2 copies of it in bombylans
+# extract the contig sequences from the morph genomes that contained the CA12 gene
+# then blast them against the reference to see where they match to
 
 
 # set variables
@@ -30,31 +30,35 @@ module load blast-uoneasy/2.14.1-gompi-2023a
 
 
 
+# extract the contig sequences from the bombylans and plumata references
+zgrep --after-context=1 'ptg000018l' $plumata > $wkdir/plumata_ptg000018l.fasta
+zgrep --after-context=1 'ptg000136l' $bombylans > $wkdir/bombylans_ptg000136l.fasta
+zgrep --after-context=1 'ptg000219l' $bombylans > $wkdir/bombylans_ptg000219l.fasta
+
+
+
 # make the blast databases
 gunzip -c $reference | makeblastdb -in - -dbtype nucl -title HF_blast_database -out ${reference%.*.*}_blastdb
 gunzip -c $bombylans | makeblastdb -in - -dbtype nucl -title HF_blast_database -out ${bombylans%.*.*}_blastdb
 gunzip -c $plumata | makeblastdb -in - -dbtype nucl -title HF_blast_database -out ${plumata%.*.*}_blastdb
 
-
+# blast gene sequence against main reference file
+blastn \
+-query $wkdir/plumata_ptg000018l.fasta \
+-db ${reference%.*.*}_blastdb \
+-out $wkdir/plumata_ptg000018l_blast_hits.txt
 
 # blast gene sequence against main reference file
 blastn \
--query $wkdir/$gene.fasta \
+-query $wkdir/bombylans_ptg000136l.fasta \
 -db ${reference%.*.*}_blastdb \
--out $wkdir/${gene}_blast_hits.txt
+-out $wkdir/bombylans_ptg000136l_blast_hits.txt
 
-# blast gene sequence against bombylans morph reference
+# blast gene sequence against main reference file
 blastn \
--query $wkdir/$gene.fasta \
--db ${bombylans%.*.*}_blastdb \
--out $wkdir/${gene}_bombylans_blast_hits.txt
-
-# blast gene sequence against plumata morph reference
-blastn \
--query $wkdir/$gene.fasta \
--db ${plumata%.*.*}_blastdb \
--out $wkdir/${gene}_plumata_blast_hits.txt
-
+-query $wkdir/bombylans_ptg000219l.fasta \
+-db ${reference%.*.*}_blastdb \
+-out $wkdir/bombylans_ptg000219l_blast_hits.txt
 
 
 # unload software
