@@ -1,0 +1,46 @@
+Checklist	ERC000011	ENA default sample checklist									
+tax_id	scientific_name	sample_alias	sample_title	sample_description	dev_stage	lat_lon	collected_by	collection date	sex	geographic location (country and/or sea)	variety	location
+#units	 	 	 	 	 	 	 	 	 	 	 
+1352473	Volucella bombylans	VB20001	VB20001	DNA extracted from frozen limb and or thorax tissue	adult	54.4674030021891,-0.679353143274052	Tom Reader	2020-06-20	F	United Kingdom	var. bombylans	Fen Bog
+1352473	Volucella bombylans	VB20002	VB20002	DNA extracted from frozen limb and or thorax tissue	adult	54.4674030021891,-0.679353143274052	Tom Reader	2020-07-21	F	United Kingdom	var. bombylans	Fen Bog
+1352473	Volucella bombylans	VB20003	VB20003	DNA extracted from frozen limb and or thorax tissue	adult	54.4674030021891,-0.679353143274052	Tom Reader	2020-06-20	M	United Kingdom	var. plumata	Fen Bog
+1352473	Volucella bombylans	VB20004	VB20004	DNA extracted from frozen limb and or thorax tissue	adult	54.4674030021891,-0.679353143274052	Tom Reader	2020-08-01	M	United Kingdom	var. plumata	Fen Bog
+1352473	Volucella bombylans	VB20005	VB20005	DNA extracted from frozen limb and or thorax tissue	adult	54.4674030021891,-0.679353143274052	Tom Reader	2020-07-16	M	United Kingdom	var. plumata	Fen Bog
+1352473	Volucella bombylans	VB20006	VB20006	DNA extracted from frozen limb and or thorax tissue	adult	54.4674030021891,-0.679353143274052	Tom Reader	2020-07-21	M	United Kingdom	var. plumata	Fen Bog
+1352473	Volucella bombylans	VB21001	VB21001	DNA extracted from frozen limb and or thorax tissue	adult	53.077355,-0.946892	Laura Dean	2021-06-23	M	United Kingdom	var. bombylans	Southwell
+1352473	Volucella bombylans	VB21002	VB21002	DNA extracted from frozen limb and or thorax tissue	adult	53.202804,-1.072372	Andrew MacColl	2021-06-23	M	United Kingdom	var. plumata	Sherwood
+1352473	Volucella bombylans	VB21003	VB21003	DNA extracted from frozen limb and or thorax tissue	adult	53.205791,-1.165686	Andrew MacColl	2021-06-23	F	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21004	VB21004	DNA extracted from frozen limb and or thorax tissue	adult	53.2053134,-1.1683635	Andrew MacColl	2021-06-23	M	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21005	VB21005	DNA extracted from frozen limb and or thorax tissue	adult	53.204676,-1.16862	Andrew MacColl	2021-06-23	M	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21006	VB21006	DNA extracted from frozen limb and or thorax tissue	adult	53.2049739,-1.1684769	Andrew MacColl	2021-06-23	F	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21007	VB21007	DNA extracted from frozen limb and or thorax tissue	adult	53.204744,-1.168439	Laura Dean	2021-06-23	M	United Kingdom	var. bombylans	Warsop
+1352473	Volucella bombylans	VB21008	VB21008	DNA extracted from frozen limb and or thorax tissue	adult	53.207083,-1.167764	Andrew MacColl	2021-06-23	F	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21009	VB21009	DNA extracted from frozen limb and or thorax tissue	adult	53.079773,-0.941465	Andrew MacColl	2021-06-23	M	United Kingdom	recombinant	Southwell
+1352473	Volucella bombylans	VB21010	VB21010	DNA extracted from frozen limb and or thorax tissue	adult	53.0797765,-0.9419475	Andrew MacColl	2021-06-24	M	United Kingdom	var. plumata	Southwell
+1352473	Volucella bombylans	VB21011	VB21011	DNA extracted from frozen limb and or thorax tissue	adult	53.0797765,-0.9419475	Andrew MacColl	2021-06-24	M	United Kingdom	var. plumata	Southwell
+1352473	Volucella bombylans	VB21012	VB21012	DNA extracted from frozen limb and or thorax tissue	adult	53.0796929,-0.9416622	Andrew MacColl	2021-06-24	M	United Kingdom	var. plumata	Southwell
+1352473	Volucella bombylans	VB21013	VB21013	DNA extracted from frozen limb and or thorax tissue	adult	53.0797765,-0.9419475	Andrew MacColl	2021-06-24	M	United Kingdom	var. plumata	Southwell
+1352473	Volucella bombylans	VB21014	VB21014	DNA extracted from frozen limb and or thorax tissue	adult	53.2047158,-1.1691541	Unknown	2021-07-01	M	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21015	VB21015	DNA extracted from frozen limb and or thorax tissue	adult	53.2056643,-1.1685221	Unknown	2021-07-01	F	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21016	VB21016	DNA extracted from frozen limb and or thorax tissue	adult	53.2041867,-1.1692671	Unknown	2021-07-01	M	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21017	VB21017	DNA extracted from frozen limb and or thorax tissue	adult	53.2049261,-1.1682978	Unknown	2021-07-01	M	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21018	VB21018	DNA extracted from frozen limb and or thorax tissue	adult	53.2050592,-1.1673299	Unknown	2021-07-01	M	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21019	VB21019	DNA extracted from frozen limb and or thorax tissue	adult	53.080017,-0.941737	Laura Dean	2021-07-01	M	United Kingdom	var. plumata	Southwell
+1352473	Volucella bombylans	VB21020	VB21020	DNA extracted from frozen limb and or thorax tissue	adult	52.9023157,-1.2060955	Andrew MacColl	2021-07-05	F	United Kingdom	var. plumata	Clifton
+1352473	Volucella bombylans	VB21021	VB21021	DNA extracted from frozen limb and or thorax tissue	adult	53.079992,-0.941741	Laura Dean	2021-07-07	M	United Kingdom	var. plumata	Southwell
+1352473	Volucella bombylans	VB21022	VB21022	DNA extracted from frozen limb and or thorax tissue	adult	53.204259,-1.169201	Laura Dean	2021-07-08	M	United Kingdom	var. bombylans	Warsop
+1352473	Volucella bombylans	VB21023	VB21023	DNA extracted from frozen limb and or thorax tissue	adult	53.2049707,-1.1683964	Andrew MacColl	2021-07-08	M	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21024	VB21024	DNA extracted from frozen limb and or thorax tissue	adult	53.2047967,-1.1686244	Andrew MacColl	2021-07-08	M	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21025	VB21025	DNA extracted from frozen limb and or thorax tissue	adult	53.2044921,-1.1671354	Laurie / Aida	2021-07-02	F	United Kingdom	var. plumata	Warsop
+1352473	Volucella bombylans	VB21026	VB21026	DNA extracted from frozen limb and or thorax tissue	adult	52.9041705,-1.2573743	Laurie / Aida	2021-07-05	M	United Kingdom	var. bombylans	Attenborough
+1352473	Volucella bombylans	VB21027	VB21027	DNA extracted from frozen limb and or thorax tissue	adult	52.8978959,-1.2310478	Laurie / Aida	2021-07-05	M	United Kingdom	var. plumata	Attenborough
+1352473	Volucella bombylans	VB21028	VB21028	DNA extracted from frozen limb and or thorax tissue	adult	52.904341,-1.2566414	Laurie / Aida	2021-07-05	F	United Kingdom	var. bombylans	Attenborough
+1352473	Volucella bombylans	VB21029	VB21029	DNA extracted from frozen limb and or thorax tissue	adult	52.910303,-1.202478	Laurie / Aida	2021-07-07	M	United Kingdom	var. bombylans	Clifton
+1352473	Volucella bombylans	VB21030	VB21030	DNA extracted from frozen limb and or thorax tissue	adult	53.3191118,-1.5818489	Andrew MacColl	2021-07-16	M	United Kingdom	var. plumata	Sheffield
+1352473	Volucella bombylans	VB21031	VB21031	DNA extracted from frozen limb and or thorax tissue	adult	53.3191118,-1.5818489	Andrew MacColl	2021-07-16	M	United Kingdom	var. plumata	Sheffield
+1352473	Volucella bombylans	VB21032	VB21032	DNA extracted from frozen limb and or thorax tissue	adult	53.3191118,-1.5818489	Andrew MacColl	2021-07-16	M	United Kingdom	var. plumata	Sheffield
+1352473	Volucella bombylans	VB21033	VB21033	DNA extracted from frozen limb and or thorax tissue	adult	53.2525779,-1.8790711	Laura Dean	2021-07-21	F	United Kingdom	var. plumata	Buxton
+1352473	Volucella bombylans	VB21034	VB21034	DNA extracted from frozen limb and or thorax tissue	adult	53.2743637,-1.918908	Laurie / Aida	2021-07-15	M	United Kingdom	var. plumata	Buxton
+1352473	Volucella bombylans	VB21035	VB21035	DNA extracted from frozen limb and or thorax tissue	adult	53.2743779,-1.9190394	Laurie / Aida	2021-07-15	M	United Kingdom	var. bombylans	Buxton
+1352473	Volucella bombylans	VB21036	VB21036	DNA extracted from frozen limb and or thorax tissue	adult	53.2744707,-1.9188701	Laurie / Aida	2021-07-16	F	United Kingdom	var. plumata	Buxton
+1352473	Volucella bombylans	VB21037	VB21037	DNA extracted from frozen limb and or thorax tissue	adult	53.2744707,-1.9188701	Laurie / Aida	2021-07-16	F	United Kingdom	var. plumata	Buxton
