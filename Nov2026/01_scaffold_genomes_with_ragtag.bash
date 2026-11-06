@@ -18,7 +18,7 @@
 source $HOME/.bash_profile
 conda activate ragtag
 cd /gpfs01/home/mbzlld/data/Hoverflies/reference_genomes
-mkdir -p sacffolded
+mkdir -p scaffolded
 
 assembly=volucella_bombylans/early_access_assembly/idVolBomb1.20220915.decontaminated.fa
 #assembly=bombylans_morph/idVolBomb4.fa
