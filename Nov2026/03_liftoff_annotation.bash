@@ -15,6 +15,7 @@
 
 
 # setup env software
+source $HOME/.bash_profile
 #conda create --name lifton --override-channels -c conda-forge -c bioconda --strict-channel-priority minimap2 miniprot
 conda activate lifton
 #conda install python=3.12
