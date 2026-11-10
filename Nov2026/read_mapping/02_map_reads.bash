@@ -62,6 +62,7 @@ sample_barcode=$(cut -d ":" -f10 <<< "$file_info")
 PU=$flowcell_ID.$lane_no.$sample_barcode
 ID=$flowcell_ID.$lane_no
 
+echo "the read group header line for this individual is: @RG\tID:$ID\tSM:$IND\tPL:ILLUMINA\tLB:$IND\tPU:$PU"
 
 ###### Align the reads to the reference genome using bwa mem ######
 # BWA MEM command explanation:
@@ -70,15 +71,15 @@ ID=$flowcell_ID.$lane_no
 bwa mem \
 -t 19 \
 -M \
--R "@RG\tID:"$ID"\tSM:"$SAMPLE"\tPL:ILLUMINA\tLB:"$SAMPLE"\tPU:"$PU"" \
+-R "@RG\tID:"$ID"\tSM:"$IND"\tPL:ILLUMINA\tLB:"$IND"\tPU:"$PU"" \
 $ref \
 $fwd_reads \
 $rev_reads |
 # add mate score tags then
 # sort and index the bam files
 samtools fixmate --threads 19 -m -O BAM - - |
-samtools sort --threads 19 -o $genome_identifier/bams/${SAMPLE}_tmp.bam
-samtools index $genome_identifier/bams/${SAMPLE}_tmp.bam
+samtools sort --threads 19 -o $genome_identifier/bams/${IND}_tmp.bam
+samtools index $genome_identifier/bams/${IND}_tmp.bam
 
 # remove pcr duplicaltes with picard
 java -Xmx1g -jar $EBROOTPICARD/picard.jar \
@@ -87,21 +88,21 @@ REMOVE_DUPLICATES=false \
 ASSUME_SORTED=true \
 VALIDATION_STRINGENCY=SILENT \
 MAX_FILE_HANDLES_FOR_READ_ENDS_MAP=1000 \
-INPUT=$genome_identifier/bams/${SAMPLE}_tmp.bam \
-OUTPUT=$genome_identifier/bams/${SAMPLE}.bam \
-METRICS_FILE=$genome_identifier/bams/bam_info/${SAMPLE}.rmd.bam.metrics
+INPUT=$genome_identifier/bams/${IND}_tmp.bam \
+OUTPUT=$genome_identifier/bams/${IND}.bam \
+METRICS_FILE=$genome_identifier/bams/bam_info/${IND}.rmd.bam.metrics
 
 # index the final bam file
-samtools index $genome_identifier/bams/${SAMPLE}.bam
+samtools index $genome_identifier/bams/${IND}.bam
 
 # remove the temp file with duplicates not removed
-rm $genome_identifier/bams/${SAMPLE}_tmp.bam*
+rm $genome_identifier/bams/${IND}_tmp.bam*
 
 
 
 # Generate info about how well the reads mapped
-echo "the reads mapped with the following success:" > $genome_identifier/bams/bam_info/${SAMPLE}_mapping_info.txt
-samtools flagstat --threads 19 $genome_identifier/bams/$SAMPLE.bam >> $genome_identifier/bams/bam_info/${SAMPLE}_mapping_info.txt
+echo "the reads mapped with the following success:" > $genome_identifier/bams/bam_info/${IND}_mapping_info.txt
+samtools flagstat --threads 19 $genome_identifier/bams/$IND.bam >> $genome_identifier/bams/bam_info/${IND}_mapping_info.txt
 
 # deactivate software
 conda deactivate
