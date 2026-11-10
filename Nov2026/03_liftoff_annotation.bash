@@ -23,7 +23,8 @@ conda activate lifton
 
 
 # setup env
-target=~/data/Hoverflies/reference_genomes/volucella_bombylans/early_access_assembly/idVolBomb1.20220915.decontaminated.fa
+#target=~/data/Hoverflies/reference_genomes/volucella_bombylans/early_access_assembly/idVolBomb1.20220915.decontaminated.fa
+target=~/data/Hoverflies/reference_genomes/bombylans_morph/idVolBomb4.fa
 reference=~/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
 annotation=~/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-2023_07-genes.gff
 cd $(dirname $target)
