@@ -20,8 +20,8 @@ conda activate ragtag
 cd /gpfs01/home/mbzlld/data/Hoverflies/reference_genomes
 mkdir -p scaffolded
 
-assembly=volucella_bombylans/early_access_assembly/idVolBomb1.20220915.decontaminated.fa
-#assembly=bombylans_morph/idVolBomb4.fa
+#assembly=volucella_bombylans/early_access_assembly/idVolBomb1.20220915.decontaminated.fa
+assembly=bombylans_morph/idVolBomb4.fa
 #assembly=plumata_morph/idVolBomb13.fa
 reference=volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
 
@@ -33,6 +33,7 @@ ragtag.py scaffold \
 -t 16 \
 -r \
 -u \
+-m 1000000 \
 -o scaffolded/$(basename ${assembly%.*})_ragtag \
 $reference $assembly
 
