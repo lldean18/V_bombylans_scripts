@@ -28,9 +28,11 @@ reference=volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
 
 ### scaffold assembly ###
 # -r = infer gap sizes
+# -u = add suffix to unplaced sequence headers so they cannot share the same name
 ragtag.py scaffold \
 -t 16 \
 -r \
+-u \
 -o scaffolded/$(basename ${assembly%.*})_ragtag \
 $reference $assembly
 
