@@ -25,6 +25,11 @@ genome_identifier=bombylans_scaffolded
 chr=1_RagTag
 size=425
 
+ASSEMBLY=~/data/Hoverflies/reference_genomes/scaffolded/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic_ragtag/ragtag.scaffold.fasta
+genome_identifier=alternate_scaffolded
+chr=1_RagTag
+size=400
+
 # setup env
 source $HOME/.bash_profile
 mkdir -p ~/data/Hoverflies/Nov26/$genome_identifier/self_mapping
