@@ -17,10 +17,12 @@
 # setup variables
 ASSEMBLY=~/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
 genome_identifier=published_ref
+chr=1
 size=394
 
 ASSEMBLY=~/data/Hoverflies/reference_genomes/scaffolded/idVolBomb4_ragtag/ragtag.scaffold.fasta
 genome_identifier=bombylans_scaffolded
+chr=1_RagTag
 size=425
 
 # setup env
@@ -30,7 +32,7 @@ cd ~/data/Hoverflies/Nov26/$genome_identifier/self_mapping
 
 
 # extract the region of interest
-echo "1:1-${size}000000" > region_of_interest.txt # write region of interest to a file
+echo "${chr}:1-${size}000000" > region_of_interest.txt # write region of interest to a file
 conda activate samtools1.24
 samtools faidx $ASSEMBLY
 samtools faidx $ASSEMBLY --region-file region_of_interest.txt > ${genome_identifier}_${size}Mb_region.fasta
