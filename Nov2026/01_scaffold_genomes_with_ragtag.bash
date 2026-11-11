@@ -21,8 +21,10 @@ cd /gpfs01/home/mbzlld/data/Hoverflies/reference_genomes
 mkdir -p scaffolded
 
 #assembly=volucella_bombylans/early_access_assembly/idVolBomb1.20220915.decontaminated.fa
-assembly=bombylans_morph/idVolBomb4.fa
+#assembly=bombylans_morph/idVolBomb4.fa
+assembly=volucella_bombylans/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
 #assembly=plumata_morph/idVolBomb13.fa
+
 reference=volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
 
 
