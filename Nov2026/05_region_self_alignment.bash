@@ -9,7 +9,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --cpus-per-task=16
-#SBATCH --mem=30g
+#SBATCH --mem=50g
 #SBATCH --time=8:00:00
 #SBATCH --output=/gpfs01/home/mbzlld/code_and_scripts/slurm_out_scripts/slurm-%x-%j.out
 
@@ -25,10 +25,10 @@ genome_identifier=bombylans_scaffolded
 chr=1_RagTag
 size=425
 
-ASSEMBLY=~/data/Hoverflies/reference_genomes/scaffolded/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic_ragtag/ragtag.scaffold.fasta
-genome_identifier=alternate_scaffolded
-chr=1_RagTag
-size=400
+##  ASSEMBLY=~/data/Hoverflies/reference_genomes/scaffolded/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic_ragtag/ragtag.scaffold.fasta
+##  genome_identifier=alternate_scaffolded
+##  chr=1_RagTag
+##  size=400
 
 # setup env
 source $HOME/.bash_profile
