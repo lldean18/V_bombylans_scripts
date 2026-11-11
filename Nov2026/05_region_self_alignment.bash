@@ -19,6 +19,10 @@ ASSEMBLY=~/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bomby
 genome_identifier=published_ref
 size=394
 
+ASSEMBLY=~/data/Hoverflies/reference_genomes/scaffolded/idVolBomb4_ragtag/ragtag.scaffold.fasta
+genome_identifier=bombylans_scaffolded
+size=425
+
 # setup env
 source $HOME/.bash_profile
 mkdir -p ~/data/Hoverflies/Nov26/$genome_identifier/self_mapping
