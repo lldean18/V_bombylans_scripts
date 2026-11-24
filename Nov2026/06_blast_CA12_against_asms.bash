@@ -22,7 +22,9 @@ cd /gpfs01/home/mbzlld/data/Hoverflies/Nov26/CA12_blast
 # set variables
 REFERENCE=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
 ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
-#ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
+ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/scaffolded/idVolBomb4_ragtag/idVolBomb4_ragtag.fasta
+#ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/scaffolded/idVolBomb13_ragtag/idVolBomb13_ragtag.fasta
 
 # set gene and region dictionary
 declare -A arr
@@ -41,16 +43,20 @@ conda activate blast
 makeblastdb \
     -in $ASSEMBLY \
     -dbtype nucl \
-    -out $(basename $ASSEMBLY%.*)_db
+    -out $(basename ${ASSEMBLY%.*})_db
+
+echo -e "qseqid\tsseqid\tpident\tlength\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tbitscore" > 
 
 blastn \
     -query CA12.fa \
-    -db $(basename $ASSEMBLY%.*)_db \
-    -out CA12_$(basename $ASSEMBLY%.*)_hits.tsv \
+    -db $(basename ${ASSEMBLY%.*})_db \
+    -out CA12_$(basename ${ASSEMBLY%.*})_hits.tsv \
     -outfmt 6 \
     -evalue 1e-10 \
     -word_size 11 \
     -num_threads 8
+
+{ echo -e "qseqid\tsseqid\tpident\tlength\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tbitscore"; cat CA12_$(basename ${ASSEMBLY%.*})_hits.tsv; } > CA12_$(basename ${ASSEMBLY%.*})_hits.tsv.tmp && mv CA12_$(basename ${ASSEMBLY%.*})_hits.tsv.tmp CA12_$(basename ${ASSEMBLY%.*})_hits.tsv
 
 conda deactivate
 
