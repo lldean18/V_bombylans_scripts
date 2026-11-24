@@ -5,13 +5,36 @@
 # script to download the long-read data used to generate the Sanger assembly from ENA
 
 
-# setup env
-conda activate tmux
-tmux attach -t hoverfly_download
-srun --partition defq --cpus-per-task 2 --mem 10g --time 24:00:00 --pty bash
+##  # setup env
+##  conda activate tmux
+##  tmux attach -t hoverfly_download
+##  srun --partition defq --cpus-per-task 2 --mem 10g --time 24:00:00 --pty bash
+
+
 source $HOME/.bash_profile
+#conda create --name globus conda-forge::globus-cli
+conda activate globus
+
+
 mkdir -p /gpfs01/home/mbzlld/data/Hoverflies/long_reads
 cd /gpfs01/home/mbzlld/data/Hoverflies/long_reads
+
+
+# try downloading with globus
+globus login # then go to the url and login with my google account and paste the code
+globus endpoint search "EMBL-EBI Public Data" # get the ENA endpoint
+# ID                                   | Owner                | Display Name         | Domain
+# -------------------------------------+----------------------+----------------------+------------------------------------
+# 47772002-3e5b-4fd3-b97c-18cee38d6df2 | globus-ebi@ebi.ac.uk | EMBL-EBI Public Data | g-a8b222.dd271.03c0.data.globus.org
+globus session show # to show my session information
+# asked IT to make me an enpoint
+
+globus transfer \
+47772002-3e5b-4fd3-b97c-18cee38d6df2:/vol1/run/ERR142/ERR14220438/m84098_240124_155710_s2.hifi_reads.bc2071.bam \
+dd3dafb5-ccd8-44e6-9e2c-f8d5d56573d9:/gpfs01/home/mbzlld/data/Hoverflies/long_reads/m84098_240124_155710_s2.hifi_reads.bc2071.bam
+
+
+
 
 
 # download Sanger PACBIO_SMRT, instrument: Revio
