@@ -26,13 +26,14 @@ ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombyla
 #ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/scaffolded/idVolBomb4_ragtag/idVolBomb4_ragtag.fasta
 #ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/scaffolded/idVolBomb13_ragtag/idVolBomb13_ragtag.fasta
 
-# create a blast database for the assembly
-conda activate blast
-makeblastdb \
-    -in $ASSEMBLY \
-    -dbtype nucl \
-    -out $(basename ${ASSEMBLY%.*})_db
-conda deactivate
+# hashing this out because I already made databases for all asms
+##  # create a blast database for the assembly
+##  conda activate blast
+##  makeblastdb \
+##      -in $ASSEMBLY \
+##      -dbtype nucl \
+##      -out $(basename ${ASSEMBLY%.*})_db
+##  conda deactivate
 
 # set gene and region dictionary
 # PDCD6 also had 1:161283299-161300612 and 1:346107109-346107882 locations in the annotation
@@ -46,7 +47,7 @@ genes[NCOA6]=1:8591953-8594050
 genes[ENSYEVG00000012261]=1:8660984-8661421
 
 
-for gene in ${genes[@]}
+for gene in ${!genes[@]}
 do
 
 # extract gene sequence
@@ -59,7 +60,7 @@ conda activate blast
 blastn \
     -query $gene.fa \
     -db $(basename ${ASSEMBLY%.*})_db \
-    -out $gene_$(basename ${ASSEMBLY%.*})_hits.tsv \
+    -out ${gene}_$(basename ${ASSEMBLY%.*})_hits.tsv \
     -outfmt 6 \
     -evalue 1e-10 \
     -word_size 11 \
@@ -67,7 +68,7 @@ blastn \
 conda deactivate
 
 # add a header line to the output file
-{ echo -e "qseqid\tsseqid\tpident\tlength\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tbitscore"; cat $gene_$(basename ${ASSEMBLY%.*})_hits.tsv; } > $gene_$(basename ${ASSEMBLY%.*})_hits.tsv.tmp && mv $gene_$(basename ${ASSEMBLY%.*})_hits.tsv.tmp $gene_$(basename ${ASSEMBLY%.*})_hits.tsv
+{ echo -e "qseqid\tsseqid\tpident\tlength\tmismatch\tgapopen\tqstart\tqend\tsstart\tsend\tevalue\tbitscore"; cat ${gene}_$(basename ${ASSEMBLY%.*})_hits.tsv; } > ${gene}_$(basename ${ASSEMBLY%.*})_hits.tsv.tmp && mv ${gene}_$(basename ${ASSEMBLY%.*})_hits.tsv.tmp ${gene}_$(basename ${ASSEMBLY%.*})_hits.tsv
 
 done
 
