@@ -24,7 +24,7 @@ REFERENCE=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombyl
 ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
 ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
 ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/scaffolded/idVolBomb4_ragtag/idVolBomb4_ragtag.fasta
-#ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/scaffolded/idVolBomb13_ragtag/idVolBomb13_ragtag.fasta
+ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/scaffolded/idVolBomb13_ragtag/idVolBomb13_ragtag.fasta
 
 # set gene and region dictionary
 declare -A arr
