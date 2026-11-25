@@ -26,14 +26,34 @@ globus endpoint search "EMBL-EBI Public Data" # get the ENA endpoint
 # ID                                   | Owner                | Display Name         | Domain
 # -------------------------------------+----------------------+----------------------+------------------------------------
 # 47772002-3e5b-4fd3-b97c-18cee38d6df2 | globus-ebi@ebi.ac.uk | EMBL-EBI Public Data | g-a8b222.dd271.03c0.data.globus.org
-globus session show # to show my session information
+globus session show # to show my session information which was:
+#Username           | ID                                   | Auth Time
+#-------------------+--------------------------------------+---------------------
+#lldean18@gmail.com | c8015e96-88c6-4ec6-a93f-eb471ce8b069 | 2026-11-24 14:52 GMT
 # asked IT to make me an enpoint
+
+##  ########################
+##  # right trying to do it with globus-connect-personal as recommended by Colin
+##  #mkdir -p /gpfs01/home/mbzlld/software_bin/globus_connect_personal
+##  cd /gpfs01/home/mbzlld/software_bin/globus_connect_personal
+##  #wget https://downloads.globus.org/globus-connect-personal/linux/stable/globusconnectpersonal-latest.tgz
+##  #tar xzf globusconnectpersonal-latest.tgz
+##  cd globusconnectpersonal-3.3.2
+##  ./globusconnectpersonal -setup \
+##  --name "LauraDean" \
+##  --description "The University of Nottingham - Laura Dean" \
+##  --owner "lldean18@gmail.com"
+##  # registered new endpoint, id: 22a37fdf-e8db-11f1-b775-0effc68fde15
+##  #setup completed successfully
+
+./globusconnectpersonal -status
 
 globus transfer \
 47772002-3e5b-4fd3-b97c-18cee38d6df2:/vol1/run/ERR142/ERR14220438/m84098_240124_155710_s2.hifi_reads.bc2071.bam \
-dd3dafb5-ccd8-44e6-9e2c-f8d5d56573d9:/gpfs01/home/mbzlld/data/Hoverflies/long_reads/m84098_240124_155710_s2.hifi_reads.bc2071.bam
+22a37fdf-e8db-11f1-b775-0effc68fde15:/gpfs01/home/mbzlld/data/Hoverflies/long_reads/m84098_240124_155710_s2.hifi_reads.bc2071.bam
 
-
+#Message: The transfer has been accepted and a task has been created and queued for execution
+#Task ID: 8693e766-e8dc-11f1-9767-0affc602d875
 
 
 
