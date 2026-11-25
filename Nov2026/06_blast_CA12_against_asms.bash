@@ -21,19 +21,20 @@ cd /gpfs01/home/mbzlld/data/Hoverflies/Nov26/CA12_blast
 
 # set variables
 REFERENCE=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
-ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
+#ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/Volucella_bombylans-GCA_949129095.1-unmasked.fa
 #ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/volucella_bombylans/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic.fna
 #ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/scaffolded/idVolBomb4_ragtag/idVolBomb4_ragtag.fasta
 #ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/scaffolded/idVolBomb13_ragtag/idVolBomb13_ragtag.fasta
+ASSEMBLY=/gpfs01/home/mbzlld/data/Hoverflies/reference_genomes/scaffolded/GCA_949129105.1_idVolBomb1.1_alternate_haplotype_genomic_ragtag/alternate_haplotype_scaffolded.fasta
 
-# hashing this out because I already made databases for all asms
-##  # create a blast database for the assembly
-##  conda activate blast
-##  makeblastdb \
-##      -in $ASSEMBLY \
-##      -dbtype nucl \
-##      -out $(basename ${ASSEMBLY%.*})_db
-##  conda deactivate
+# hash this out once you have made a database once for each asm
+# create a blast database for the assembly
+conda activate blast
+makeblastdb \
+    -in $ASSEMBLY \
+    -dbtype nucl \
+    -out $(basename ${ASSEMBLY%.*})_db
+conda deactivate
 
 # set gene and region dictionary
 # PDCD6 also had 1:161283299-161300612 and 1:346107109-346107882 locations in the annotation
