@@ -19,6 +19,12 @@ source $HOME/.bash_profile
 conda activate ntsynt
 
 OUTDIR=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/ntsynt/main_vs_bomb4_contigs
+ASM1=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/main_bomb_asm_chr1_1-30Mb.fasta
+ASM2=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/idVolBomb4_bomb_key_contigs.fasta
+
+OUTDIR=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/ntsynt/main_vs_plum13_contigs
+ASM1=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/main_bomb_asm_chr1_1-30Mb.fasta
+ASM2=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/idVolBomb13_plumata_key_contigs.fasta
 
 mkdir -p $OUTDIR
 cd $OUTDIR
@@ -29,16 +35,16 @@ cd $OUTDIR
 # calculate synteny between assemblies
 ntSynt \
   --divergence 0.5 \
-  /gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/main_bomb_asm_chr1_1-30Mb.fasta \
-  /gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/idVolBomb4_bomb_key_contigs.fasta
+  $ASM1 \
+  $ASM2
 
 # plot synteny between assemblies
 ntsynt_viz.py \
 --normalize \
 --blocks ntSynt.k24.w1000.synteny_blocks.tsv \
---fais main_bomb_asm_chr1_1-30Mb.fasta.fai idVolBomb4_bomb_key_contigs.fasta.fai \
---prefix ribbon_plot_main_vs_Bomb4 \
---target-genome main_bomb_asm_chr1_1-30Mb.fasta \
+--fais $(basename $ASM1).fai $(basename $ASM2).fai \
+--prefix ribbon_plot_$(basename $OUTDIR) \
+--target-genome $(basename $ASM1) \
 --no-arrow \
 --ribbon_adjust 0.15 \
 --length 1000 \
