@@ -22,9 +22,9 @@ OUTDIR=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/ntsynt/main_vs_bomb4_contigs
 ASM1=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/main_bomb_asm_chr1_1-30Mb.fasta
 ASM2=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/idVolBomb4_bomb_key_contigs.fasta
 
-OUTDIR=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/ntsynt/main_vs_plum13_contigs
-ASM1=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/main_bomb_asm_chr1_1-30Mb.fasta
-ASM2=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/idVolBomb13_plumata_key_contigs.fasta
+#OUTDIR=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/ntsynt/main_vs_plum13_contigs
+#ASM1=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/main_bomb_asm_chr1_1-30Mb.fasta
+#ASM2=/gpfs01/home/mbzlld/data/Hoverflies/Nov26/chr1_mapping/idVolBomb13_plumata_key_contigs.fasta
 
 mkdir -p $OUTDIR
 cd $OUTDIR
@@ -44,14 +44,13 @@ ntsynt_viz.py \
 --blocks ntSynt.k24.w1000.synteny_blocks.tsv \
 --fais $(basename $ASM1).fai $(basename $ASM2).fai \
 --prefix ribbon_plot_$(basename $OUTDIR) \
---target-genome $(basename $ASM1) \
---no-arrow \
+--target-genome $(basename $ASM2) \
 --ribbon_adjust 0.15 \
---length 1000 \
---seq_length 1000 \
+--scale 1000000 \
 --height 70 \
 --width 150
 
+#--no-arrow \
 # unload software
 conda deactivate
 
